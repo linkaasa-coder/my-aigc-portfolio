@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="AIGC创作、视频剪辑与创意文案个人作品集">
+<title>个人作品集 — AIGC Creator</title>
+<style>
+:root{--bg:#f7f7f5;--ink:#171717;--muted:#70706c;--line:#deded8;--card:#fff;--accent:#c9f36a;--serif:Georgia,"Times New Roman",serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6}a{color:inherit;text-decoration:none}button{font:inherit}.wrap{width:min(1120px,calc(100% - 48px));margin:auto}
+nav{height:76px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font-size:13px;letter-spacing:.04em}
+.logo{font-weight:800;letter-spacing:-.04em;font-size:18px}.logo span{display:inline-block;width:8px;height:8px;border-radius:50%;background:#171717;margin-left:5px}
+.navlinks{display:flex;gap:28px;color:#5e5e59}.navlinks a:hover{color:#000}.nav-cta{border:1px solid #171717;padding:9px 14px;border-radius:2px;color:#171717}
+.hero{padding:86px 0 72px;display:grid;grid-template-columns:1.3fr .7fr;gap:56px;align-items:end}
+.eyebrow{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:10px}.eyebrow:before{content:"";width:28px;height:1px;background:#777}
+h1{font-size:clamp(48px,7vw,88px);line-height:.98;letter-spacing:-.075em;margin:25px 0 26px;font-weight:650;max-width:760px}
+h1 em{font-family:var(--serif);font-weight:400;letter-spacing:-.07em}
+.hero-copy{max-width:550px;color:#5e5e59;font-size:16px}.hero-side{padding-bottom:8px}.hero-side p{font-size:13px;color:var(--muted);margin:0 0 20px}.hero-side strong{display:block;font-size:14px;font-weight:600;margin-bottom:7px}.hero-buttons{display:flex;gap:10px;flex-wrap:wrap;margin-top:27px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 17px;font-size:13px;border:1px solid #171717;transition:.2s}.btn.primary{background:#171717;color:white}.btn.primary:hover{background:#393939}.btn.secondary:hover{background:#ecece7}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:21px 0;margin-bottom:94px;gap:20px}.metric strong{font-size:22px;letter-spacing:-.05em;display:block}.metric span{font-size:11px;color:var(--muted);letter-spacing:.08em}
+section{padding:0 0 100px;scroll-margin-top:28px}.section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:27px;gap:20px}.section-kicker{font-size:11px;letter-spacing:.16em;color:var(--muted);text-transform:uppercase}.section-head h2{font-size:clamp(28px,4vw,43px);letter-spacing:-.06em;margin:7px 0 0;line-height:1.1}.section-note{font-size:12px;color:var(--muted);max-width:300px;text-align:right}
+.work-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:34px 22px}.work-card{min-width:0}.cover{aspect-ratio:16/10;position:relative;overflow:hidden;background:#e6e6e0;display:flex;align-items:center;justify-content:center}
+.cover:after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,0,0,.02),rgba(0,0,0,.17));pointer-events:none}
+.cover-art{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.art-film{background:radial-gradient(ellipse at 55% 35%,#a6aaa3 0,#59615b 24%,#222824 57%,#101311 100%);color:#f4f4ed}
+.art-film:before{content:"";position:absolute;width:36%;height:130%;left:32%;top:-14%;transform:rotate(14deg);background:linear-gradient(90deg,transparent,#d7d8cf66,#f6f3e755,transparent);filter:blur(8px)}
+.art-film .art-title{position:relative;text-align:center;font-family:var(--serif);font-size:clamp(30px,5vw,58px);line-height:1.05;letter-spacing:-.05em;text-shadow:0 4px 25px #0008}
+.art-film small{display:block;font:10px sans-serif;letter-spacing:.22em;margin-top:15px}
+.art-edit{background:linear-gradient(145deg,#d7d7cf,#f0f0eb 48%,#a8aaa3);color:#1d201b}
+.art-edit:before{content:"";position:absolute;width:74%;height:65%;border:1px solid #34372e;transform:rotate(-8deg);box-shadow:16px 15px 0 #a1a398,32px 30px 0 #c0c1b8}
+.art-edit .art-title{position:relative;font:italic clamp(32px,5vw,60px) var(--serif);letter-spacing:-.07em}
+.art-copy{background:#e5e3dc;color:#282823}
+.art-copy:before{content:"";position:absolute;inset:13% 18%;border:1px solid #b6b4aa;background:repeating-linear-gradient(to bottom,transparent 0 15px,#aaa99f 16px,transparent 17px);opacity:.65}
+.art-copy .art-title{position:relative;background:#e5e3dc;padding:10px 16px;font-family:var(--serif);font-size:clamp(28px,4vw,46px);font-style:italic;letter-spacing:-.06em}
+.art-brand{background:#20211f;color:#f3f1e8}
+.art-brand:before{content:"";position:absolute;width:190px;height:190px;border:1px solid #77796e;border-radius:50%;box-shadow:0 0 0 18px #20211f,0 0 0 19px #77796e,0 0 0 42px #20211f,0 0 0 43px #77796e}
+.art-brand .art-title{position:relative;font-size:14px;letter-spacing:.35em;text-transform:uppercase}
+.cover-label{position:absolute;z-index:2;left:15px;top:14px;background:#f7f7f0e8;padding:5px 8px;font-size:9px;letter-spacing:.1em;text-transform:uppercase}
+.cover-index{position:absolute;z-index:2;right:15px;bottom:13px;color:white;font-size:11px;letter-spacing:.1em}
+.work-meta{display:flex;justify-content:space-between;gap:15px;align-items:start;padding-top:15px}.work-meta h3{font-size:18px;letter-spacing:-.04em;margin:0 0 5px;font-weight:600}.work-meta p{font-size:12px;color:var(--muted);margin:0}.work-type{font-size:10px;letter-spacing:.1em;color:#62625c;white-space:nowrap;padding-top:4px}
+.work-detail{margin-top:14px;font-size:13px;color:#595953;max-width:540px}.tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:13px}.tag{font-size:10px;padding:5px 8px;border:1px solid var(--line);color:#66665f}
+.about{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px;border-top:1px solid var(--line);padding-top:38px}.about h2{font-size:clamp(28px,4vw,42px);line-height:1.08;letter-spacing:-.06em;margin:10px 0}.about-copy{font-size:15px;color:#5b5b55;max-width:650px}.about-copy p{margin:0 0 17px}.skill-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:25px}.skill{border-top:1px solid var(--line);padding:12px 0;font-size:13px}.skill small{display:block;color:var(--muted);font-size:11px;margin-top:3px}
+.process{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.process-item{border-top:1px solid var(--line);padding-top:16px}.process-num{font-family:var(--serif);font-size:29px;color:#88887f}.process-item h3{font-size:16px;margin:10px 0 7px}.process-item p{font-size:13px;color:var(--muted);margin:0}
+.contact{background:#e9e9e2;padding:52px;display:flex;justify-content:space-between;gap:30px;align-items:end}.contact h2{font-size:clamp(32px,5vw,54px);letter-spacing:-.07em;line-height:1.02;margin:12px 0}.contact p{font-size:13px;color:#66665f;margin:0}.contact-actions{display:flex;flex-direction:column;align-items:flex-start;gap:12px;min-width:200px}.email-placeholder{font-size:12px;border-bottom:1px solid #aaa99f;padding-bottom:5px}
+footer{display:flex;justify-content:space-between;gap:20px;padding:25px 0 35px;color:var(--muted);font-size:11px}.footer-right{letter-spacing:.12em}
+.notice{background:#fff7df;border:1px solid #e7d8a5;padding:13px 15px;font-size:12px;color:#665a30;margin-top:24px}
+@media(max-width:760px){.wrap{width:min(100% - 32px,560px)}nav{height:65px}.navlinks{display:none}.hero{grid-template-columns:1fr;gap:28px;padding:64px 0 52px}h1{font-size:clamp(48px,14vw,76px)}.hero-side{border-top:1px solid var(--line);padding-top:20px}.metrics{margin-bottom:70px}.section-head{align-items:start;flex-direction:column}.section-note{text-align:left}.work-grid{grid-template-columns:1fr;gap:30px}section{padding-bottom:75px}.about{grid-template-columns:1fr;gap:15px}.process{grid-template-columns:1fr;gap:24px}.contact{padding:30px 24px;flex-direction:column;align-items:start}.contact-actions{min-width:0}footer{flex-direction:column;gap:7px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav>
+  <a class="logo" href="#top">PORTFOLIO<span></span></a>
+  <div class="navlinks"><a href="#work">作品精选</a><a href="#about">关于我</a><a href="#process">创作流程</a></div>
+  <a class="nav-cta" href="#contact">联系我 ↗</a>
+</nav>
+<header class="hero" id="top">
+  <div>
+    <div class="eyebrow">AIGC CREATION · VIDEO · STORYTELLING</div>
+    <h1>让创意，<br><em>成为看得见的作品。</em></h1>
+    <p class="hero-copy">你好，我是一名专注于 AIGC 内容创作的创作者，擅长 AI 视频生成、视频剪辑与创意文案。关注从一个想法出发，到画面、叙事与成片落地的完整过程。</p>
+    <div class="hero-buttons"><a class="btn primary" href="#work">浏览作品 ↓</a><a class="btn secondary" href="#contact">联系合作 ↗</a></div>
+  </div>
+  <aside class="hero-side">
+    <p>CREATIVE PROFILE / 2026</p>
+    <strong>AI Video · Editing · Copywriting</strong>
+    <p>把想法转化为有视觉、有节奏、有表达的内容。</p>
+    <p>开放 AIGC 内容创作、视频制作及创意策划相关机会。</p>
+  </aside>
+</header>
+<div class="metrics">
+  <div class="metric"><strong>01 / 03</strong><span>核心创作方向</span></div>
+  <div class="metric"><strong>IDEA → FILM</strong><span>从创意到成片</span></div>
+  <div class="metric"><strong>OPEN</strong><span>求职与项目合作</span></div>
+</div>
+
+<section id="work">
+  <div class="section-head"><div><div class="section-kicker">SELECTED WORKS / 01</div><h2>作品精选</h2></div><div class="section-note">以下为可替换的作品展示模板。请将演示封面、标题、说明和链接替换成你的真实作品。</div></div>
+  <div class="work-grid">
+    <article class="work-card">
+      <a class="cover" href="#contact" aria-label="替换为AI短片链接"><div class="cover-art art-film"><div class="art-title">雪中<br>剑影<small>AI CINEMATIC SHORT</small></div></div><span class="cover-label">AI VIDEO</span><span class="cover-index">01 — 04</span></a>
+      <div class="work-meta"><div><h3>AI 叙事短片｜雪中剑影</h3><p>AI 视频生成 · 武侠氛围 · 镜头叙事</p></div><span class="work-type">VIDEO</span></div>
+      <div class="work-detail">以人物关系与雪林冲突为核心，展示从故事梗概、人物设定、分镜规划到画面生成的创作思路。</div>
+      <div class="tags"><span class="tag">AI 视频</span><span class="tag">分镜设计</span><span class="tag">视觉叙事</span></div>
+    </article>
+    <article class="work-card">
+      <a class="cover" href="#contact" aria-label="替换为剪辑作品链接"><div class="cover-art art-edit"><div class="art-title">Cut to<br>Emotion.</div></div><span class="cover-label">VIDEO EDITING</span><span class="cover-index">02 — 04</span></a>
+      <div class="work-meta"><div><h3>视频剪辑｜节奏与情绪</h3><p>剪辑包装 · 音画配合 · 节奏控制</p></div><span class="work-type">EDIT</span></div>
+      <div class="work-detail">呈现镜头取舍、音乐节奏、转场与整体情绪的组织能力。可放置短视频、宣传片或剧情片段。</div>
+      <div class="tags"><span class="tag">Premiere Pro</span><span class="tag">后期剪辑</span><span class="tag">音画设计</span></div>
+    </article>
+    <article class="work-card">
+      <a class="cover" href="#contact" aria-label="替换为文案作品链接"><div class="cover-art art-copy"><div class="art-title">关于理解<br>与表达</div></div><span class="cover-label">COPYWRITING</span><span class="cover-index">03 — 04</span></a>
+      <div class="work-meta"><div><h3>创意文案｜人文思考类内容</h3><p>选题策划 · 观点表达 · 视频脚本</p></div><span class="work-type">WORDS</span></div>
+      <div class="work-detail">从日常观察中提炼观点，以具体场景承载思考，完成开头钩子、论证结构与适合口播的文案。</div>
+      <div class="tags"><span class="tag">文案撰写</span><span class="tag">选题策划</span><span class="tag">口播脚本</span></div>
+    </article>
+    <article class="work-card">
+      <a class="cover" href="#contact" aria-label="替换为AI视觉设计链接"><div class="cover-art art-brand"><div class="art-title">VISUAL<br>EXPERIMENTS</div></div><span class="cover-label">AI VISUAL</span><span class="cover-index">04 — 04</span></a>
+      <div class="work-meta"><div><h3>AI 视觉实验｜角色与场景</h3><p>角色设定 · 视觉风格 · 提示词设计</p></div><span class="work-type">VISUAL</span></div>
+      <div class="work-detail">展示人物外观、服装细节、场景气氛与风格一致性的设计过程，可补充角色三视图、关键帧和生成结果。</div>
+      <div class="tags"><span class="tag">AIGC 工具</span><span class="tag">提示词</span><span class="tag">视觉设计</span></div>
+    </article>
+  </div>
+  <div class="notice"><strong>发布前请替换：</strong>目前封面为网页内置的风格化示意图，作品标题与说明是展示模板，并非真实项目成片。将每个卡片的链接替换成你的视频、网盘或作品详情页，再放入真实截图/封面，效果会更有说服力。</div>
+</section>
+
+<section id="about">
+  <div class="about">
+    <div><div class="section-kicker">ABOUT / 02</div><h2>创作不止于<br>生成画面。</h2></div>
+    <div class="about-copy">
+      <p>我关注 AI 工具如何参与内容生产，也重视创意本身的表达。对我来说，工具负责拓展可能性，而主题、叙事、节奏和审美决定作品最终能否打动人。</p>
+      <p>从前期的创意构思、文案与分镜，到中期的 AI 画面生成，再到后期剪辑与包装，我希望持续打磨一套能够将想法转化为完整内容的工作方法。</p>
+      <div class="skill-list">
+        <div class="skill">AI 视频创作<small>创意构思 / 提示词 / 镜头规划</small></div>
+        <div class="skill">视频剪辑<small>节奏组织 / 音画配合 / 成片包装</small></div>
+        <div class="skill">文案撰写<small>选题策划 / 口播脚本 / 叙事结构</small></div>
+        <div class="skill">AI 工具应用<small>按项目需求探索并组合工具</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="section-head"><div><div class="section-kicker">WORKFLOW / 03</div><h2>从想法到交付</h2></div><div class="section-note">把创意流程讲清楚，让招聘方看到的不只是结果，还有你的思考与执行能力。</div></div>
+  <div class="process">
+    <div class="process-item"><div class="process-num">01</div><h3>构思与策划</h3><p>明确内容目标、受众与核心表达，整理主题、脚本、视觉参考和分镜方案。</p></div>
+    <div class="process-item"><div class="process-num">02</div><h3>生成与制作</h3><p>根据画面需求选择 AI 工具，反复调整提示词、人物设定、镜头与视觉一致性。</p></div>
+    <div class="process-item"><div class="process-num">03</div><h3>剪辑与交付</h3><p>通过剪辑、声音、节奏与包装整合素材，输出符合平台和传播目标的成片。</p></div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="contact">
+    <div><div class="section-kicker">CONTACT / 04</div><h2>有创意，<br>就一起实现。</h2><p>期待 AIGC 内容创作、视频制作与创意策划相关机会。</p></div>
+    <div class="contact-actions"><a class="btn primary" href="mailto:your-email@example.com?subject=AIGC%20Portfolio">发送邮件 ↗</a><span class="email-placeholder">your-email@example.com（待替换）</span><span class="email-placeholder">微信 / 手机号：请自行补充</span></div>
+  </div>
+</section>
+<footer><span>© 2026 PERSONAL PORTFOLIO · AIGC CREATOR</span><span class="footer-right">IDEA / IMAGE / STORY</span></footer>
+</div>
+<script>
+// 轻量交互：作品卡片默认锚点，替换 href 即可跳转到真实视频或作品详情。
+document.querySelectorAll('.work-card .cover').forEach((cover) => {
+  cover.addEventListener('click', (event) => {
+    if (cover.getAttribute('href') === '#contact') {
+      event.preventDefault();
+      document.querySelector('#contact').scrollIntoView({behavior:'smooth'});
+    }
+  });
+});
+</script>
+</body>
+</html>
